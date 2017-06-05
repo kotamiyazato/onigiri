@@ -5,4 +5,4 @@
  * @author internousdev
  *
  */
-package onigiri.dao;
+package decision.dao;

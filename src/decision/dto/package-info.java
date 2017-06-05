@@ -5,4 +5,4 @@
  * @author internousdev
  *
  */
-package onigiri.action;
+package decision.dto;
