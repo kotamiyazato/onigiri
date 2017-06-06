@@ -8,16 +8,27 @@
 
 .sub{
 
-    margin:auto;
+	 margin-right:auto;
+    margin-left:auto;
 
 }
 
 .math{
-    margin:auto;
+
+
+	margin-left: auto;
+	 margin-right:auto;
+
 
 
 }
 
+
+
+input{
+	border:none;
+	text-align:center;
+}
 
 
 
@@ -28,6 +39,9 @@ h2{
 
 .kian{
 
+	 margin-right:auto;
+	 margin-left: auto;
+
 width:100px;
 
 }
@@ -35,11 +49,21 @@ width:100px;
 
 
 .atama{
-
-    height:100px;
+ margin-right:auto;
+  margin-left: auto;
 }
 
 
 .anken{
-    height:20px;
+
+	 margin-right:auto;
+	 margin-left: auto;
+
 }
+
+.file{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+

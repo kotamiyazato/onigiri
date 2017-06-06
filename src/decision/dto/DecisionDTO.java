@@ -1,9 +1,9 @@
 package decision.dto;
 
 /**
- * 決裁状況一覧から検索したデータを溜め込むクラス。
- * @author KENICHI HORIGUCHI,KOUMEI IWAMOTO
- * @since 2016/09/14
+ * 決裁手続クラス
+ * @author KOTA MIYAZATO
+ * @since 2017/06/05
  */
 public class DecisionDTO {
 	/**
@@ -16,26 +16,13 @@ public class DecisionDTO {
 	 *
 	 */
 	private int userId;
-	/**
-	 * プロジェクトID
-	 *
-	 */
-	private int projectId;
-	/**
-	 * 案件番号
-	 *
-	 */
-	private int decisionId;
+
 	/**
 	 * 案件名
 	 *
 	 */
 	private String decisionName;
-	/**
-	 * 詳細
-	 *
-	 */
-	private String detail;
+
 	/**
 	 * 実施起案番号
 	 *
@@ -52,7 +39,7 @@ public class DecisionDTO {
 	 */
 	private String aDraftingId;
 	/**
-	 * 契約決番号
+	 * 契約決裁番号
 	 *
 	 */
 	private String cdId;
@@ -65,30 +52,32 @@ public class DecisionDTO {
 	 * 実施兼契約番号
 	 *
 	 */
+
 	private String iAId;
+
 	/**
-	 * 姓
-	 *
+	 * 承認番号
 	 */
-	private String familyNameKanji;
+	private String adminNum;
+
+
 	/**
-	 * 名
-	 *
+	 * 	頭紙文章
 	 */
-	private String givenNameKanji;
+	private String head;
+
 	/**
-	 * プロジェクト名
-	 *
+	 * 建設費用
 	 */
-	private String projectName;
-	/**
-	 *  数値を００００に直す
-	 *
-	 */
-	private String decisionIdNumber;
+	private int bildcost;
+
+
+
+
+
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @return
 	*/
 	public String getRegistration() {
@@ -96,7 +85,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @param
 	*/
 	public void setRegistration(String registration) {
@@ -104,7 +93,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @return
 	*/
 	public int getUserId() {
@@ -112,47 +101,16 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @param
 	*/
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public int getProjectId() {
-		return projectId;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
-	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public int getDecisionId() {
-		return decisionId;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setDecisionId(int decisionId) {
-		this.decisionId = decisionId;
-	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @return
 	*/
 	public String getDecisionName() {
@@ -160,31 +118,16 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @param
 	*/
 	public void setDecisionName(String decisionName) {
 		this.decisionName = decisionName;
 	}
+
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public String getDetail() {
-		return detail;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @return
 	*/
 	public String getIDraftingId() {
@@ -192,7 +135,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @param
 	*/
 	public void setIDraftingId(String iDraftingId) {
@@ -200,7 +143,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @return
 	*/
 	public String getIApprovalId() {
@@ -208,7 +151,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @param
 	*/
 	public void setIApprovalId(String iApprovalId) {
@@ -216,7 +159,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @return
 	*/
 	public String getADraftingId() {
@@ -224,7 +167,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @param
 	*/
 	public void setADraftingId(String aDraftingId) {
@@ -232,7 +175,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @return
 	*/
 	public String getCdId() {
@@ -240,7 +183,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @param
 	*/
 	public void setCdId(String cdId) {
@@ -248,7 +191,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @return
 	*/
 	public String getIADId() {
@@ -256,7 +199,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @param
 	*/
 	public void setIADId(String iADId) {
@@ -264,7 +207,7 @@ public class DecisionDTO {
 	}
 	/**
 	* 取得メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @return
 	*/
 	public String getIAId() {
@@ -272,76 +215,49 @@ public class DecisionDTO {
 	}
 	/**
 	* 設定メソッド
-	* @author TATSUYA HOSHI
+	* @author KOTA MIYAZATO
 	* @param
 	*/
 	public void setIAId(String iAId) {
 		this.iAId = iAId;
 	}
 	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public String getFamilyNameKanji() {
-		return familyNameKanji;
+	 * @return adminNum
+	 */
+	public String getAdminNum() {
+		return adminNum;
 	}
 	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setFamilyNameKanji(String familyNameKanji) {
-		this.familyNameKanji = familyNameKanji;
+	 * @param adminNum セットする adminNum
+	 */
+	public void setAdminNum(String adminNum) {
+		this.adminNum = adminNum;
 	}
 	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public String getGivenNameKanji() {
-		return givenNameKanji;
+	 * @return head
+	 */
+	public String getHead() {
+		return head;
 	}
 	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setGivenNameKanji(String givenNameKanji) {
-		this.givenNameKanji = givenNameKanji;
+	 * @param head セットする head
+	 */
+	public void setHead(String head) {
+		this.head = head;
 	}
 	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public String getProjectName() {
-		return projectName;
+	 * @return bildcost
+	 */
+	public int getBildcost() {
+		return bildcost;
 	}
 	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
+	 * @param bildcost セットする bildcost
+	 */
+	public void setBildcost(int bildcost) {
+		this.bildcost = bildcost;
 	}
-	/**
-	* 取得メソッド
-	* @author TATSUYA HOSHI
-	* @return
-	*/
-	public String getDecisionIdNumber() {
-		return decisionIdNumber;
-	}
-	/**
-	* 設定メソッド
-	* @author TATSUYA HOSHI
-	* @param
-	*/
-	public void setDecisionIdNumber(String decisionIdNumber) {
-		this.decisionIdNumber = decisionIdNumber;
-	}
+
 
 
 }
