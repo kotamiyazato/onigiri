@@ -6,7 +6,6 @@ package decision.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.internousdev.util.DBConnector;
@@ -27,7 +26,7 @@ public class DecisionDAO {
 	 * 決裁手続きの情報をリスト化
 	 *
 	 */
-	private ArrayList<DecisionDTO> DecisionList = new  ArrayList<DecisionDTO>();
+	private ArrayList<DecisionDTO> decisionList = new  ArrayList<DecisionDTO>();
 
 
 
@@ -38,52 +37,74 @@ public class DecisionDAO {
 	 * @param userId
 	 * @return Decision
 	 */
-	public ArrayList<DecisionDTO> select(int userId){
+	public ArrayList<DecisionDTO> select(){
 
-	DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
-	Connection conn = (Connection) db.getConnection();
+	DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","decision","root","mysql");
+	Connection con = (Connection) db.getConnection();
 
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
-	String sql = "select * from decision inner join users on decision.user_id = users."
-			+ "user_id inner join projects on decision.project_id = projects.project_id";
+
+	String sql = "select * from decision";
+
+
 
 	try {
-		PreparedStatement ps = conn.prepareStatement(sql);
+		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 
 		while(rs.next()) {
 			DecisionDTO dto = new DecisionDTO();
-			dto.setRegistration(sdf.format( rs.getDate("registration") ).toString());
-			dto.setUserId(rs.getInt("user_id"));
 
 
 
-			dto.setDecisionName(rs.getString("decision_name"));
+			dto.setUserId(rs.getInt("user_id"));                //ユーザーID
 
-			dto.setIDraftingId(rs.getString("i_drafting_id"));
-			dto.setIApprovalId(rs.getString("i_approval_id"));
-			dto.setADraftingId(rs.getString("a_drafting_id"));
-			dto.setCdId(rs.getString("cd_id"));
-			dto.setIADId(rs.getString("i_a_d_id"));
-			dto.setIAId(rs.getString("i_a_id"));
-			dto.setHead(rs.getString("head"));
+			dto.setDecisionName(rs.getString("decision_name")); //案件名
+
+			dto.setIDraftingId(rs.getString("i_drafting_id")); //実施起案番号
+
+			dto.setIApprovalId(rs.getString("i_approval_id")); //実施決裁番号
+
+			dto.setADraftingId(rs.getString("a_drafting_id")); //契約起案番号
+
+			dto.setCdId(rs.getString("cd_id"));                //契約決裁番号
+
+			dto.setIADId(rs.getString("i_a_d_id"));            //実施兼契約起案番号
+
+			dto.setIAId(rs.getString("i_a_id"));               //実施兼契約番号
+
+			dto.setHead(rs.getString("head"));                 //頭紙文章
+
+			dto.setSummary(rs.getString("summary"));           //概要
+
+			dto.setCause(rs.getString("cause"));               //理由・目的
+
+			dto.setStartDay(rs.getString("start_day"));        //開始日
+
+			dto.setEndDay(rs.getString("end_day"));            //終了日
+
+			dto.setAmountAll(rs.getInt("amount_all"));         //合計金額
+
+			dto.setBenefit(rs.getInt("benefit"));              //損益費用
+
+			dto.setBildCost(rs.getInt("bild_cost"));           //建設費用
 
 
 
-			DecisionList.add(dto);
+
+			decisionList.add(dto);
 
 		}
 	}catch (SQLException e) {
 		e.printStackTrace();
 	}finally{
 		try{
-			conn.close();
+			con.close();
 		}catch (SQLException e){
 			e.printStackTrace();
 		}
 	}
-	return DecisionList;
+	return decisionList;
 }
 
 

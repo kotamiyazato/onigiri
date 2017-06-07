@@ -99,8 +99,20 @@ function calculation(){
 
 
 
+function OnButtonClick() {
+  var fileRef = document.getElementById('File1');
+  var outFrame = document.getElementById('output');
+
+  for (i = 0; i < fileRef.files.length; i++) {
+    outFrame.innerHTML = fileRef.files[i].name +"<br/>";
+  }
+
+}
 
 
+
+
+  //選択箇所全入力
             $(function () {
                 $("#input").on("keyup change", function () {
                     $("#a,#b,#c,#d").val($(this).val());
@@ -117,7 +129,7 @@ function calculation(){
 <form action="#" name="form1">
 
 
-    <table  class="main" border="2" >
+    <table  class="main" border="2">
 
    <tr>
 
@@ -216,7 +228,7 @@ function calculation(){
 
 
 
-        <table class="sub" border="1">
+        <table class="sub"  border="2">
 
             <tr>
         <th></th>
@@ -309,7 +321,7 @@ function calculation(){
 
 
 
-        <table class="math" border="1">
+        <table class="math"  border="2">
         <tr>
             <th>
 
@@ -365,23 +377,18 @@ function calculation(){
         <h2>WBS、チーム体制図、画面遷移図を添付</h2>
 
 
-
-
-      <div class ="file">
+<div class ="file">
 
         <form action="decideaction">
-        <input type="file" name="example" multiple size="30">
-             <input type="submit" name="save" value="保存" />
-        </form>
 
 
 
-         </div>
+<input id="File1" type="file" multiple size="30" /><input id="Button1" type="button" value="開く" onclick="OnButtonClick();" />
+  <div id="output"></div>
 
+ </form>
 
-
-
-
+</div>
 
 
 

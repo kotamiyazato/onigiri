@@ -1,5 +1,7 @@
 .main{
 
+
+
     margin-left: auto;
     margin-right:auto;
 
@@ -8,12 +10,15 @@
 
 .sub{
 
+
 	 margin-right:auto;
     margin-left:auto;
 
 }
 
 .math{
+
+
 
 
 	margin-left: auto;
@@ -37,29 +42,11 @@ h2{
 }
 
 
-.kian{
-
-	 margin-right:auto;
-	 margin-left: auto;
-
-width:100px;
-
-}
 
 
 
-.atama{
- margin-right:auto;
-  margin-left: auto;
-}
 
 
-.anken{
-
-	 margin-right:auto;
-	 margin-left: auto;
-
-}
 
 .file{
 	margin-left:auto;

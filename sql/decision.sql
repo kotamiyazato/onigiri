@@ -10,40 +10,6 @@ drop table if exists projects;
 drop table if exists users;
 
 
-/* 書籍一覧 */
-create table books(
-book_id int primary key not null auto_increment comment 'ブックID',
-title varchar(100) not null unique comment 'タイトル',
-author varchar(100) not null comment '著者',
-publisher varchar(100) not null comment '出版社',
-publish_day varchar(10) not null comment '出版日',
-regist_day datetime not null  default current_timestamp comment 'カレッジ登録日',
-updated_day datetime not null  default current_timestamp on update current_timestamp comment '更新日',
-status_flg tinyint(1) NOT NULL DEFAULT '0' COMMENT '状態フラグ(0:通常,1:削除,2:紛失)'
-);
-
-use openconnect;
-insert into books(book_id, title, author, publisher, publish_day) values
-(1, '本１', '太郎', 'A出版', '2015.05'),
-(2, '本２', '次郎', 'B出版', '2016.06'),
-(3, '本３', '花子', 'C出版', '2017.05'),
-(4, '本４', '太郎', 'A出版', '2015.05'),
-(5, '本５', '次郎', 'B出版', '2016.06'),
-(6, '本６', '花子', 'C出版', '2017.05'),
-(7, '本７', '太郎', 'A出版', '2015.05'),
-(8, '本８', '次郎', 'B出版', '2016.06'),
-(9, '本９', '花子', 'C出版', '2017.05'),
-(10, '本１０', '太郎', 'A出版', '2015.05'),
-(11, '本１２', '次郎', 'B出版', '2016.06'),
-(12, '本１３', '花子', 'C出版', '2017.05'),
-(13, '本１４', '太郎', 'A出版', '2015.05'),
-(14, '本１５', '次郎', 'B出版', '2016.06'),
-(15, '本１６', '花子', 'C出版', '2017.05'),
-(16, '本１７', '太郎', 'A出版', '2015.05'),
-(17, '本１８', '次郎', 'B出版', '2016.06'),
-(18, '本１９', '花子', 'C出版', '2017.05');
-
-
 
 
 /* 決済 */
@@ -56,8 +22,12 @@ decision_type varchar(30) default '実施' comment '決裁種類(実施, 契約,
 decision_status1 tinyint(1) default 0 comment '実施決裁状況(0:作成中, 1:申請中/承認待ち, 2:承認済み, 3:変更中)',
 decision_status2 tinyint(1) default 0 comment '契約/実施兼契約決裁状況(0:作成中, 1:申請中/承認待ち, 2:承認済み, 3:変更中)',
 summary varchar(255) comment '概要',
-cause varchar(255) comment '理由',
+cause varchar(255) comment '理由・目的',
 detail varchar(255) comment '詳細',
+head varchar(255) comment '頭紙文章'
+bild_cost int comment '建設費用'
+benefit int comment '損益利益'
+amount_all int comment '合計金額'
 persons int comment '人数',
 registration date comment '登録日',
 start_day date comment '開始日',
@@ -139,3 +109,6 @@ insert into users values
 (2,'i','inoue','takuma','井上','いのうえ','琢磨','たくま','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','i@g','09012345678','takuma.inoue@ne.jp','男','1990-09-25',FALSE,FALSE,'3','2010','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00'),
 (3,'l1','test','leader1','テスト','てすと','リーダー1','りーだー1','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','l1@g','09012345678','leader1.test@ne.jp','男','1990-04-01',FALSE,FALSE,'2','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00'),
 (4,'l2','test','leader2','テスト','てすと','リーダー2','りーだー2','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','l2@g','09012345678','leader2.test@ne.jp','男','1990-04-01',FALSE,FALSE,'2','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00');
+
+
+
