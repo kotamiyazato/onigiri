@@ -12,7 +12,15 @@
 
 		<!-- 決済手続き電子化画面への遷移 -->
 		<action name="DecisionAction"
-			class="onigiri.action.DecisionAction"
+			class="decision.action.DecisionAction"
+			method="execute">
+			<result name="success">decision.jsp</result>
+			<result name="error">decision.jsp</result>
+		</action>
+
+			<!-- 決済手続きアップデート -->
+		<action name="DecisionUpdateAction"
+			class="decision.action.DecisionUpdateAction"
 			method="execute">
 			<result name="success">decision.jsp</result>
 			<result name="error">decision.jsp</result>

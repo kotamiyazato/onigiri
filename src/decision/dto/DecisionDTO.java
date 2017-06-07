@@ -70,17 +70,17 @@ public class DecisionDTO {
 	/**
 	 * 建設費用
 	 */
-	private int bildCost;
+	private float bildCost;
 
 	/**
 	 * 損益費用
 	 */
-	private int benefit;
+	private float benefit;
 
 	/**
 	 * 合計金額
 	 */
-	private int amountAll;
+	private float amountAll;
 
 	/**
 	 * 概要
@@ -257,13 +257,13 @@ public class DecisionDTO {
 	/**
 	 * @return bildcost
 	 */
-	public int getBildCost() {
+	public float getBildCost() {
 		return bildCost;
 	}
 	/**
 	 * @param bildcost セットする bildcost
 	 */
-	public void setBildCost(int bildCost) {
+	public void setBildCost(float bildCost) {
 		this.bildCost = bildCost;
 	}
 
@@ -318,25 +318,25 @@ public class DecisionDTO {
 		/**
 		 * @return benefit
 		 */
-		public int getBenefit() {
+		public float getBenefit() {
 			return benefit;
 		}
 		/**
 		 * @param benefit セットする benefit
 		 */
-		public void setBenefit(int benefit) {
+		public void setBenefit(float benefit) {
 			this.benefit = benefit;
 		}
 		/**
 		 * @return amountAll
 		 */
-		public int getAmountAll() {
+		public float getAmountAll() {
 			return amountAll;
 		}
 		/**
 		 * @param amountAll セットする amountAll
 		 */
-		public void setAmountAll(int amountAll) {
+		public void setAmountAll(float amountAll) {
 			this.amountAll = amountAll;
 		}
 

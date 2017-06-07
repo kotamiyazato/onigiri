@@ -3,7 +3,6 @@
  */
 package decision.action;
 
-
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.UnknownFormatConversionException;
@@ -14,10 +13,13 @@ import decision.dao.DecisionDAO;
 import decision.dto.DecisionDTO;
 
 /**
- * @author internousdev
+ * @author KOTA MIYAZATO
  *
  */
-public class DecisionAction extends ActionSupport{
+public class DecisionUpdateAction extends ActionSupport{
+
+
+
 
 
 	/**
@@ -74,41 +76,6 @@ public class DecisionAction extends ActionSupport{
 	 */
 	public String cause;
 
-
-	/**
-	 * 	頭紙文章
-	 */
-	private String head;
-
-	/**
-	 * 建設費用
-	 */
-	private float bildCost;
-
-	/**
-	 * 損益費用
-	 */
-	private float benefit;
-
-	/**
-	 * 合計金額
-	 */
-	private float amountAll;
-
-	/**
-	 * 概要
-	 */
-	public String summary;
-
-	/**
-	 * 開始日
-	 */
-	public String startDay;
-
-	/**
-	 * 終了日
-	 */
-	public String endDay;
 
 	/**
 	 * @return cause
@@ -176,7 +143,40 @@ public class DecisionAction extends ActionSupport{
 		this.endDay = endDay;
 	}
 
+	/**
+	 * 	頭紙文章
+	 */
+	private String head;
 
+	/**
+	 * 建設費用
+	 */
+	private Float bildCost;
+
+	/**
+	 * 損益費用
+	 */
+	private Float benefit;
+
+	/**
+	 * 合計金額
+	 */
+	private Float amountAll;
+
+	/**
+	 * 概要
+	 */
+	public String summary;
+
+	/**
+	 * 開始日
+	 */
+	public String startDay;
+
+	/**
+	 * 終了日
+	 */
+	public String endDay;
 
 
 
@@ -200,7 +200,7 @@ public class DecisionAction extends ActionSupport{
 
 
 	/**
-     * 決裁手続きの情報をリストを取得するメソッド
+     * 決裁手続きの情報をリストを更新する
      * @author kota.miyazato
      * @since 2017/06/07
      * @version 1.0
@@ -436,38 +436,12 @@ public class DecisionAction extends ActionSupport{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+

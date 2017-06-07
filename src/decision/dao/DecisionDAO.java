@@ -3,13 +3,13 @@
  */
 package decision.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.util.DBConnector;
-import com.mysql.jdbc.Connection;
 
 import decision.dto.DecisionDTO;
 
@@ -33,8 +33,8 @@ public class DecisionDAO {
 
 
 	/**
-	 * ユーザーIDで情報を引き出すメソッド
-	 * @param userId
+	 * 情報を引き出すメソッド
+	 * @param
 	 * @return Decision
 	 */
 	public ArrayList<DecisionDTO> select(){
@@ -83,11 +83,11 @@ public class DecisionDAO {
 
 			dto.setEndDay(rs.getString("end_day"));            //終了日
 
-			dto.setAmountAll(rs.getInt("amount_all"));         //合計金額
+			dto.setAmountAll(rs.getFloat("amount_all"));         //合計金額
 
-			dto.setBenefit(rs.getInt("benefit"));              //損益費用
+			dto.setBenefit(rs.getFloat("benefit"));              //損益費用
 
-			dto.setBildCost(rs.getInt("bild_cost"));           //建設費用
+			dto.setBildCost(rs.getFloat("bild_cost"));           //建設費用
 
 
 
@@ -108,46 +108,55 @@ public class DecisionDAO {
 }
 
 
+	/**
+	 * 表示メソッド  表示したい内容を、DBから取り出しDTOへ転送する為のメソッド
+	 * @author TATUHUMI ITOU
+	 * @return  projectList 抽出に成功したらSUCCESS、失敗したらERROR
+	 */
+
+	public int update(int userId,String decisionName,String iDraftingId,
+			String summary,String cause,String startDay,String endDay,String iApprovalId,String aDraftingId,String cdId,
+			String iADId,String iAId,String head,float amountAll,float benefit,float bildCost) {
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "decision", "root","mysql");
+		Connection con = db.getConnection();
+			int count = 0;
+			String sql = "UPDATE decision SET user_id=?,dicision_name=?,i_drafting_id=?,summary=?,cause=?,start_day=?,end_day=? ,"
+					+ "i_approve_id,=? ,a_drafting_id=?,cd_id=? ,i_a_d_id=?,i_a_id=?, head=?, amount_all=?,benefit=?, bild_cost=? ";
+
+			try{
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setInt(1,userId);
+				ps.setString(2,decisionName);
+				ps.setString(3,iDraftingId);
+				ps.setString(4,summary);
+				ps.setString(5,cause);
+				ps.setString(6,startDay);
+				ps.setString(7,endDay);
+				ps.setString(8,iApprovalId);
+				ps.setString(9,aDraftingId);
+				ps.setString(10,cdId);
+				ps.setString(11,iADId);
+				ps.setString(12,head);
+				ps.setFloat(13,amountAll);
+				ps.setFloat(14,benefit);
+				ps.setFloat(15,bildCost);
+				count =ps.executeUpdate();
+
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+				try{
+					con.close();
+				}catch (SQLException e){
+					e.printStackTrace();
+				}
+			}
+			return count;
+		}
+	}
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}

@@ -135,7 +135,7 @@ function OnButtonClick() {
 
         <th class="kian">起案者名</th>
 
-       <td><input type="text" name="name" size="8" placeholder="氏名"></td>
+       <td><input type="text" name="name" size="8" value="<s:property value="#" /> placeholder="氏名"></td>
 
        <th colspan="2">プロジェクト承認者</th>
 
@@ -154,17 +154,17 @@ function OnButtonClick() {
         <tr>
             <th >起案番号</th>
 
-            <td colspan="2">q</td>
+            <td colspan="2"></td>
 
             <th>決裁番号</th>
 
-            <td  colspan="2">q</td>
+            <td  colspan="2"></td>
 
             <th colspan="2">実施時期・実施機関</th>
 
-            <td colspan="3"><input type="date" name="example" required>~
+            <td colspan="3"><input type="date" name="example" value="<s:property value="startDay" />" required>~
 
-<input type="date" name="example2" required></td>
+<input type="date" name="example2" value="<s:property value="endDay" />" required></td>
 
 
         </tr>
@@ -173,7 +173,7 @@ function OnButtonClick() {
         <tr>
         <th class="atama">決裁頭紙</th>
 
-            <td colspan="10">q</td>
+            <td colspan="10"><s:property value="head" /></td>
 
 
         </tr>
@@ -183,14 +183,14 @@ function OnButtonClick() {
     <th class="anken">案件名
     </th>
 
-    <td colspan="3"><textarea cols="32" rows="4" name="案件名"></textarea></td>
+    <td colspan="3"><textarea cols="32" rows="4" name="案件名"  value="<s:property value="decisionName" />" ></textarea></td>
 
     <th>費用</th>
 
     <td colspan="6">
-    建設費用：<input type="text" name="field_bild" readonly="readonly" size="8">万円
-    　損益費用：<input type="text" name="field_benefit" readonly="readonly" size="8">万円
-    　合計：<input type="text" name="field_submit" readonly="readonly" size="8">万円</td>
+    建設費用：<input type="text" name="field_bild" value="<s:property value="bildCost" />" readonly="readonly" size="8">万円
+    損益費用：<input type="text" name="field_benefit" value="<s:property value="benefit" />" readonly="readonly" size="8">万円
+    合計：<input type="text" name="field_submit" value="<s:property value="amountAll" />" readonly="readonly" size="8">万円</td>
 
 
 
@@ -198,7 +198,7 @@ function OnButtonClick() {
 
         <tr>
         <th>概要</th>
-         <td colspan="10"><textarea cols="124" rows="4" name="案件名"></textarea></td>
+         <td colspan="10"><textarea cols="124" value="<s:property value="summary" />" rows="4" name="案件名"></textarea></td>
 
 
         </tr>
@@ -209,7 +209,7 @@ function OnButtonClick() {
 
         <tr>
         <th>理由・目的</th>
-         <td colspan="10"><textarea cols="124" rows="4" name="案件名"></textarea></td>
+         <td colspan="10"><textarea cols="124" value="<s:property value="cause" />" rows="4" name="案件名"></textarea></td>
 
 
         </tr>
