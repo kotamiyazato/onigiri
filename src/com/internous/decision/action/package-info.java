@@ -5,4 +5,4 @@
  * @author internousdev
  *
  */
-package decision.dto;
+package com.internous.decision.action;

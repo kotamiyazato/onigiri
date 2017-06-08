@@ -1,4 +1,4 @@
-package decision.dto;
+package com.internous.decision.dto;
 
 /**
  * 決裁手続クラス
@@ -98,7 +98,179 @@ public class DecisionDTO {
 	public String endDay;
 
 
+	/**
+	 * 開発端末料
+	 */
+	public int prove;
 
+	/**
+	 * リリース環境使用料
+	 */
+	public float re;
+
+
+
+
+	/**
+	 *回線使用料
+	 */
+	public int line;
+
+
+	/**
+	 *施設使用料
+	 */
+	public float room;
+
+	/**
+	 *開発要員
+	 */
+	public int human;
+
+	/**
+	 *雑費
+	 */
+	public float etc;
+
+
+
+
+
+
+
+
+	/**
+	 * @return iDraftingId
+	 */
+	public String getiDraftingId() {
+		return iDraftingId;
+	}
+	/**
+	 * @param iDraftingId セットする iDraftingId
+	 */
+	public void setiDraftingId(String iDraftingId) {
+		this.iDraftingId = iDraftingId;
+	}
+	/**
+	 * @return iApprovalId
+	 */
+	public String getiApprovalId() {
+		return iApprovalId;
+	}
+	/**
+	 * @param iApprovalId セットする iApprovalId
+	 */
+	public void setiApprovalId(String iApprovalId) {
+		this.iApprovalId = iApprovalId;
+	}
+	/**
+	 * @return aDraftingId
+	 */
+	public String getaDraftingId() {
+		return aDraftingId;
+	}
+	/**
+	 * @param aDraftingId セットする aDraftingId
+	 */
+	public void setaDraftingId(String aDraftingId) {
+		this.aDraftingId = aDraftingId;
+	}
+	/**
+	 * @return iADId
+	 */
+	public String getiADId() {
+		return iADId;
+	}
+	/**
+	 * @param iADId セットする iADId
+	 */
+	public void setiADId(String iADId) {
+		this.iADId = iADId;
+	}
+	/**
+	 * @return iAId
+	 */
+	public String getiAId() {
+		return iAId;
+	}
+	/**
+	 * @param iAId セットする iAId
+	 */
+	public void setiAId(String iAId) {
+		this.iAId = iAId;
+	}
+	/**
+	 * @return prove
+	 */
+	public int getProve() {
+		return prove;
+	}
+	/**
+	 * @param prove セットする prove
+	 */
+	public void setProve(int prove) {
+		this.prove = prove;
+	}
+	/**
+	 * @return re
+	 */
+	public float getRe() {
+		return re;
+	}
+	/**
+	 * @param re セットする re
+	 */
+	public void setRe(float re) {
+		this.re = re;
+	}
+	/**
+	 * @return line
+	 */
+	public int getLine() {
+		return line;
+	}
+	/**
+	 * @param line セットする line
+	 */
+	public void setLine(int line) {
+		this.line = line;
+	}
+	/**
+	 * @return room
+	 */
+	public float getRoom() {
+		return room;
+	}
+	/**
+	 * @param room セットする room
+	 */
+	public void setRoom(float room) {
+		this.room = room;
+	}
+	/**
+	 * @return human
+	 */
+	public int getHuman() {
+		return human;
+	}
+	/**
+	 * @param human セットする human
+	 */
+	public void setHuman(int human) {
+		this.human = human;
+	}
+	/**
+	 * @return etc
+	 */
+	public float getEtc() {
+		return etc;
+	}
+	/**
+	 * @param etc セットする etc
+	 */
+	public void setEtc(float etc) {
+		this.etc = etc;
+	}
 
 	/**
 	* 取得メソッド

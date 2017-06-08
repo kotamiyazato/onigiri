@@ -10,7 +10,7 @@
 
 
 
-		<!-- 決済手続き電子化画面への遷移 -->
+		<!-- 決済手続き編集への遷移 -->
 		<action name="DecisionAction"
 			class="decision.action.DecisionAction"
 			method="execute">

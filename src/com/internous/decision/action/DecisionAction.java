@@ -1,23 +1,23 @@
 /**
  *
  */
-package decision.action;
-
+package com.internous.decision.action;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.UnknownFormatConversionException;
 
+import org.apache.struts2.interceptor.SessionAware;
+import org.omg.CORBA.portable.UnknownException;
+
+import com.internous.decision.dao.DecisionDAO;
+import com.internous.decision.dto.DecisionDTO;
 import com.opensymphony.xwork2.ActionSupport;
-
-import decision.dao.DecisionDAO;
-import decision.dto.DecisionDTO;
 
 /**
  * @author internousdev
  *
  */
-public class DecisionAction extends ActionSupport{
+public class DecisionAction extends ActionSupport implements SessionAware{
 
 
 	/**
@@ -110,73 +110,39 @@ public class DecisionAction extends ActionSupport{
 	 */
 	public String endDay;
 
-	/**
-	 * @return cause
-	 */
-	public String getCause() {
-		return cause;
-	}
-
-
-
 
 	/**
-	 * @param cause セットする cause
+	 * 開発端末料
 	 */
-	public void setCause(String cause) {
-		this.cause = cause;
-	}
+	public int prove;
+
+	/**
+	 * リリース環境使用料
+	 */
+	public float re;
+
 
 
 
 	/**
-	 * @return summary
+	 *回線使用料
 	 */
-	public String getSummary() {
-		return summary;
-	}
-
+	public int line;
 
 	/**
-	 * @param summary セットする summary
+	 *施設使用料
 	 */
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
-
+	public float room;
 
 	/**
-	 * @return startDay
+	 *開発要員
 	 */
-	public String getStartDay() {
-		return startDay;
-	}
+	public int human;
 
 	/**
-	 * @param startDay セットする startDay
+	 *雑費
 	 */
-	public void setStartDay(String startDay) {
-		this.startDay = startDay;
-	}
-
-
-	/**
-	 * @return endDay
-	 */
-	public String getEndDay() {
-		return endDay;
-	}
-
-
-
-	/**
-	 * @param endDay セットする endDay
-	 */
-	public void setEndDay(String endDay) {
-		this.endDay = endDay;
-	}
-
-
+	public float etc;
 
 
 
@@ -200,7 +166,8 @@ public class DecisionAction extends ActionSupport{
 
 
 	/**
-     * 決裁手続きの情報をリストを取得するメソッド
+     * DAOに入力されたデータを渡して、結果を返す
+
      * @author kota.miyazato
      * @since 2017/06/07
      * @version 1.0
@@ -211,7 +178,7 @@ public class DecisionAction extends ActionSupport{
 		DecisionDAO dao = new DecisionDAO();
 		try {
 		decisionList=dao.select();
-		} catch (UnknownFormatConversionException e) {
+		} catch (UnknownException e) {
 		e.printStackTrace();
 		}
 
@@ -435,11 +402,194 @@ public class DecisionAction extends ActionSupport{
 
 
 
+	/**
+	 * @return cause
+	 */
+	public String getCause() {
+		return cause;
+	}
+
+
+
+
+	/**
+	 * @param cause セットする cause
+	 */
+	public void setCause(String cause) {
+		this.cause = cause;
+	}
+
+
+
+	/**
+	 * @return summary
+	 */
+	public String getSummary() {
+		return summary;
+	}
+
+
+	/**
+	 * @param summary セットする summary
+	 */
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+
+	/**
+	 * @return startDay
+	 */
+	public String getStartDay() {
+		return startDay;
+	}
+
+	/**
+	 * @param startDay セットする startDay
+	 */
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
+	}
+
+
+	/**
+	 * @return endDay
+	 */
+	public String getEndDay() {
+		return endDay;
+	}
+
+
+
+	/**
+	 * @param endDay セットする endDay
+	 */
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
+	}
 
 
 
 
 
+
+
+	/**
+	 * @return prove
+	 */
+	public int getProve() {
+		return prove;
+	}
+
+
+
+
+	/**
+	 * @param prove セットする prove
+	 */
+	public void setProve(int prove) {
+		this.prove = prove;
+	}
+
+
+
+
+	/**
+	 * @return re
+	 */
+	public float getRe() {
+		return re;
+	}
+
+
+
+
+	/**
+	 * @param re セットする re
+	 */
+	public void setRe(float re) {
+		this.re = re;
+	}
+
+
+
+
+	/**
+	 * @return line
+	 */
+	public int getLine() {
+		return line;
+	}
+
+
+
+
+	/**
+	 * @param line セットする line
+	 */
+	public void setLine(int line) {
+		this.line = line;
+	}
+
+
+
+
+	/**
+	 * @return room
+	 */
+	public float getRoom() {
+		return room;
+	}
+
+
+
+
+	/**
+	 * @param room セットする room
+	 */
+	public void setRoom(float room) {
+		this.room = room;
+	}
+
+
+
+
+	/**
+	 * @return human
+	 */
+	public int getHuman() {
+		return human;
+	}
+
+
+
+
+	/**
+	 * @param human セットする human
+	 */
+	public void setHuman(int human) {
+		this.human = human;
+	}
+
+
+
+
+	/**
+	 * @return etc
+	 */
+	public float getEtc() {
+		return etc;
+	}
+
+
+
+
+	/**
+	 * @param etc セットする etc
+	 */
+	public void setEtc(float etc) {
+		this.etc = etc;
+	}
 
 
 

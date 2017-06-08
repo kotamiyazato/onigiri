@@ -5,4 +5,4 @@
  * @author internousdev
  *
  */
-package decision.dao;
+package com.internous.decision.dao;

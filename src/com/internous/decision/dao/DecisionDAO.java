@@ -1,7 +1,7 @@
 /**
  *
  */
-package decision.dao;
+package com.internous.decision.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,9 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.internous.decision.dto.DecisionDTO;
 import com.internousdev.util.DBConnector;
-
-import decision.dto.DecisionDTO;
 
 /**
  *
@@ -39,12 +38,13 @@ public class DecisionDAO {
 	 */
 	public ArrayList<DecisionDTO> select(){
 
-	DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","decision","root","mysql");
+	DBConnector db = new DBConnector("com.mysql.jdbc.Driver","jdbc:mysql://localhost/","openconnect","root","mysql");
 	Connection con = (Connection) db.getConnection();
 
 
 
-	String sql = "select * from decision";
+
+	String sql = "select * from decision ";
 
 
 
@@ -89,12 +89,31 @@ public class DecisionDAO {
 
 			dto.setBildCost(rs.getFloat("bild_cost"));           //建設費用
 
+			dto.setProve(rs.getInt("prove"));                   //開発端末料
+
+			dto.setRe(rs.getFloat("re"));                       //リリース環境使用量
+
+			dto.setLine(rs.getInt("line"));                     //回線使用料
+
+			dto.setRoom(rs.getFloat("room"));                   //施設使用料
+
+			dto.setHuman(rs.getInt("human"));                   //開発要員
+
+			dto.setEtc(rs.getFloat("etc"));                     //雑費
+
 
 
 
 			decisionList.add(dto);
 
 		}
+
+
+		rs.close();
+		ps.close();
+
+
+
 	}catch (SQLException e) {
 		e.printStackTrace();
 	}finally{
@@ -117,7 +136,7 @@ public class DecisionDAO {
 	public int update(int userId,String decisionName,String iDraftingId,
 			String summary,String cause,String startDay,String endDay,String iApprovalId,String aDraftingId,String cdId,
 			String iADId,String iAId,String head,float amountAll,float benefit,float bildCost) {
-		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "decision", "root","mysql");
+		DBConnector db = new DBConnector("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/", "openconnect", "root","mysql");
 		Connection con = db.getConnection();
 			int count = 0;
 			String sql = "UPDATE decision SET user_id=?,dicision_name=?,i_drafting_id=?,summary=?,cause=?,start_day=?,end_day=? ,"

@@ -24,14 +24,20 @@ decision_status2 tinyint(1) default 0 comment '契約/実施兼契約決裁状�
 summary varchar(255) comment '概要',
 cause varchar(255) comment '理由・目的',
 detail varchar(255) comment '詳細',
-head varchar(255) comment '頭紙文章'
-bild_cost float comment '建設費用'
-benefit float comment '損益利益'
-amount_all float comment '合計金額'
+head varchar(255) comment '頭紙文章',
+bild_cost float comment '建設費用',
+benefit float comment '損益利益',
+amount_all float comment '合計金額',
 persons int comment '人数',
 registration date comment '登録日',
 start_day date comment '開始日',
 end_day date comment '終了日',
+prove int comment '開発端末',
+re float comment 'リリース環境使用料',
+line int comment '回線使用料',
+room float comment '施設使用料',
+human int comment '開発要員',
+etc float comment '雑費' ,
 plan varchar(255) comment '実施計画の資料',
 i_drafting_id varchar(100) comment '実施起案番号',
 i_approval_id varchar(100) comment '実施決裁番号',
@@ -47,9 +53,9 @@ foreign key(project_id) references projects(project_id) on update cascade on del
 );
 
 use openconnect;
-insert into decision(decision_id, project_id, decision_name) values
-(1, 1, '案件名１(レグ)'),
-(2, 2, '案件名２(キャッツ)');
+insert into decision(decision_id, project_id, decision_name,summary , prove, re, line, room, human, etc) values
+(1, 1, '案件名１(レグ)','東王',7,0.6,1,55.5,100,0.5),
+(2, 2, '案件名２(キャッツ)','あずまっくす',7,0.6,1,55.5,100,0.5);
 
 
 
@@ -110,18 +116,5 @@ insert into users values
 (3,'l1','test','leader1','テスト','てすと','リーダー1','りーだー1','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','l1@g','09012345678','leader1.test@ne.jp','男','1990-04-01',FALSE,FALSE,'2','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00'),
 (4,'l2','test','leader2','テスト','てすと','リーダー2','りーだー2','1130034','東京都文京区湯島3-2-12　御茶ノ水天神ビル','0123456789','l2@g','09012345678','leader2.test@ne.jp','男','1990-04-01',FALSE,FALSE,'2','2016','04','','0','','2016-07-01 13:00:00','2016-07-01 13:00:00');
 
-/*見積もり */
-create table money (
-prove int comment '開発端末',
-re float comment 'リリース環境使用料',
-line int comment '回線使用料',
-room float comment '施設使用料',
-human int comment '開発要員',
-etc float comment '雑費' );
-
-
-use openconnect;
-insert into money values(
-7,0.6,1,55.5,100,0.5);
 
 

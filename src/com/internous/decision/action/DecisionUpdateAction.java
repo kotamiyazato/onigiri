@@ -1,22 +1,22 @@
 /**
  *
  */
-package decision.action;
+package com.internous.decision.action;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.UnknownFormatConversionException;
 
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internous.decision.dao.DecisionDAO;
+import com.internous.decision.dto.DecisionDTO;
 import com.opensymphony.xwork2.ActionSupport;
-
-import decision.dao.DecisionDAO;
-import decision.dto.DecisionDTO;
 
 /**
  * @author KOTA MIYAZATO
  *
  */
-public class DecisionUpdateAction extends ActionSupport{
+public class DecisionUpdateAction extends ActionSupport implements SessionAware{
 
 
 
@@ -206,18 +206,24 @@ public class DecisionUpdateAction extends ActionSupport{
      * @version 1.0
      */
 
-	public String execute(){
-		String result = ERROR;
-		DecisionDAO dao = new DecisionDAO();
-		try {
-		decisionList=dao.select();
-		} catch (UnknownFormatConversionException e) {
-		e.printStackTrace();
-		}
+	public String execute() {
+		String result =ERROR;
+		int updated=0;
 
-		result=SUCCESS;
+		DecisionDAO dao= new DecisionDAO();
+
+			updated=dao.update( userId,decisionName,iDraftingId,
+					summary,cause, startDay,endDay,iApprovalId,aDraftingId,cdId,
+					iADId,iAId,head,amountAll,benefit,bildCost);
+
+			if(updated>0){
+				result = SUCCESS;
+			}
+
+
 		return result;
-		}
+}
+
 
 
 
